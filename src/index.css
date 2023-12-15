@@ -1,14 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: "Roboto Condensed", "Roboto", sans-serif;
   font-weight: 400;
 
+  --background-clr: #1f1628;
+  --primary-clr: #29b380;
+  --text-color: #fdfaef;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 600;
+  --fs-title: 1.3rem;
+  --fs-regular: 1.2rem;
+  --transition-time: 0.2s;
+  --border: 2px solid var(--background-clr);
+  --border-radius: 0.5rem;
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-color);
+  background-color: var(--background-clr);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+ol,
+ul {
+  list-style: none;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* MAIN CSS */
+
+.container {
+  max-width: 1500px;
+  width: 100%;
+  margin-inline: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
