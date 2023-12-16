@@ -1,0 +1,10 @@
+.form-section {
+  width: 100%;
+  background-color: var(--primary-clr);
+  border-radius: var(--border-radius);
+  margin-top: 4rem;
+}
+
+.form-section form {
+  color: var(--background-clr);
+}

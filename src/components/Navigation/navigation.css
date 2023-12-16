@@ -19,8 +19,7 @@ nav {
 }
 
 .nav-logo:hover {
-  border: 2px solid transparent; /* To make transition on hover work properly */
-  border-bottom: var(--border);
+  border: 2px solid transparent;
 }
 
 .nav-links {
