@@ -15,12 +15,44 @@
 }
 
 .form-section h1 {
-  padding-bottom: 1rem;
   font-size: var(--fs-title);
+  padding-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  font-size: var(--fs-regular);
+  font-weight: var(--fw-medium);
+  display: flex;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--background-clr);
+  color: var(--primary-clr);
+  border: 2px solid transparent;
+}
+
+.active-tab {
+  background-color: var(--primary-clr);
+  color: var(--background-clr);
+  border: var(--border);
+}
+
+.tab:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.tab:last-child {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .form-searcbar {
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   padding: 0.5rem;
   width: 50%;
   height: 4rem;
@@ -38,11 +70,15 @@
 }
 
 .tags {
-  display: flex;
+  display: none;
   gap: 0.5rem;
   flex-wrap: wrap;
   padding-block: 0.8rem;
   padding-inline: 2rem;
+}
+
+.active-tags {
+  display: flex;
 }
 
 .search-btn {
@@ -55,6 +91,7 @@
   padding: 0.5rem 2rem;
   cursor: pointer;
   transition: all 0.2s ease-in;
+  margin-top: 1rem;
 }
 
 .search-btn:hover,

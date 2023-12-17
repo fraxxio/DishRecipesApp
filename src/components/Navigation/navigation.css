@@ -1,6 +1,6 @@
 nav {
+  padding-block: 0.6rem;
   background-color: var(--primary-clr);
-  padding-block: 1rem;
 }
 
 .nav-wrapper {
