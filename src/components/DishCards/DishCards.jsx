@@ -1,8 +1,15 @@
 import React from "react";
 import "./dishcards.css";
+import { useDataContext } from "../../context/dataContext";
 
 const DishCards = () => {
-  return <section className='cards-section'>DishCards</section>;
+  const { searchQuery } = useDataContext();
+
+  return (
+    <section className='cards-section'>
+      <p>{JSON.stringify(searchQuery)}</p>
+    </section>
+  );
 };
 
 export default DishCards;

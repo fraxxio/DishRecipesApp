@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./mainform.css";
 import { IoMdRefresh } from "react-icons/io";
+import { IoSearchSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
-import Tag from "../Tag/Tag";
 import { Tags } from "../../data/tags";
+import { useDataContext } from "../../context/dataContext";
+import Tag from "../Tag/Tag";
 
 const MainForm = () => {
   const { register, handleSubmit, reset } = useForm({
@@ -12,9 +14,10 @@ const MainForm = () => {
     },
   });
   const [activeTab, setActiveTab] = useState(Tags[0].name);
+  const { setSearchQuery } = useDataContext();
 
   function onSumbit(data) {
-    console.log(data);
+    setSearchQuery(data);
   }
 
   return (
@@ -41,18 +44,18 @@ const MainForm = () => {
               </button>
             );
           })}
+          <button
+            type='button'
+            className='reset-btn'
+            onClick={() =>
+              reset({
+                tags: "",
+              })
+            }
+          >
+            <IoMdRefresh /> Reset Filters
+          </button>
         </div>
-        <button
-          type='button'
-          className='reset-btn'
-          onClick={() =>
-            reset({
-              tags: "",
-            })
-          }
-        >
-          Reset Filters <IoMdRefresh />
-        </button>
 
         {Tags.map((tag, index) => {
           return (
@@ -88,7 +91,9 @@ const MainForm = () => {
           );
         })}
 
-        <input className='search-btn' type='submit' value='Search' />
+        <button className='search-btn' type='submit'>
+          <IoSearchSharp /> Search
+        </button>
       </form>
     </section>
   );
