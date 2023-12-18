@@ -35,6 +35,26 @@
   border: 2px solid transparent;
 }
 
+.reset-btn {
+  font-weight: var(--fw-medium);
+  display: flex;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--primary-clr);
+  color: var(--background-clr);
+  border: 2px solid var(--background-clr);
+  border-radius: var(--border-radius);
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.reset-btn:hover {
+  transition: 0.2s;
+  background-color: var(--background-clr);
+  color: var(--primary-clr);
+}
+
 .active-tab {
   background-color: var(--primary-clr);
   color: var(--background-clr);

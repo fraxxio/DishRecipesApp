@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./mainform.css";
+import { IoMdRefresh } from "react-icons/io";
 import { useForm } from "react-hook-form";
 import Tag from "../Tag/Tag";
 import { Tags } from "../../data/tags";
 
 const MainForm = () => {
-  const form = useForm();
-  const { register, handleSubmit } = form;
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      tags: "",
+    },
+  });
   const [activeTab, setActiveTab] = useState(Tags[0].name);
 
   function onSumbit(data) {
@@ -38,6 +42,17 @@ const MainForm = () => {
             );
           })}
         </div>
+        <button
+          type='button'
+          className='reset-btn'
+          onClick={() =>
+            reset({
+              tags: "",
+            })
+          }
+        >
+          Reset Filters <IoMdRefresh />
+        </button>
 
         {Tags.map((tag, index) => {
           return (
@@ -45,13 +60,27 @@ const MainForm = () => {
               {activeTab === tag.name ? (
                 <div className='tags active-tags'>
                   {tag.items.map((item) => {
-                    return <Tag key={item.id} name={item.display_name} id={item.name} register={register} />;
+                    return (
+                      <Tag
+                        key={item.id}
+                        displayName={item.display_name}
+                        name={item.name}
+                        register={register}
+                      />
+                    );
                   })}
                 </div>
               ) : (
                 <div className='tags'>
                   {tag.items.map((item) => {
-                    return <Tag key={item.id} name={item.display_name} id={item.name} register={register} />;
+                    return (
+                      <Tag
+                        key={item.id}
+                        displayName={item.display_name}
+                        name={item.name}
+                        register={register}
+                      />
+                    );
                   })}
                 </div>
               )}

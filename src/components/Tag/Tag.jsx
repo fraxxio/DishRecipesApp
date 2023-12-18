@@ -3,12 +3,12 @@ import { LuPlus } from "react-icons/lu";
 import { IoMdCheckmark } from "react-icons/io";
 import "./tag.css";
 
-const Tag = ({ name, id, register }) => {
+const Tag = ({ displayName, name, register }) => {
   return (
     <>
-      <input type='checkbox' id={id} value={name} {...register("tags")} />
-      <label htmlFor={id}>
-        <LuPlus className='plus' /> <IoMdCheckmark className='check' /> {name}
+      <input type='checkbox' id={name} value={name} {...register("tags")} />
+      <label htmlFor={name}>
+        <LuPlus className='plus' /> <IoMdCheckmark className='check' /> {displayName}
       </label>
     </>
   );
