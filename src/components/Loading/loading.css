@@ -1,0 +1,25 @@
+.loader {
+  width: 315px;
+  height: 310px;
+  background: linear-gradient(0.25turn, transparent, #ffffff7e, transparent),
+    linear-gradient(#1f1628, #1f1628), linear-gradient(#1f1628, #1f1628), linear-gradient(#1f1628, #1f1628);
+  background-color: var(--primary-clr);
+  background-repeat: no-repeat;
+  background-size: 315px 310px, 315px 180px, 200px 15px, 250px 15px;
+  background-position: -315px 0, 0 0, 15px 200px, 15px 240px;
+  animation: loading 1.5s infinite;
+  border: 2px solid var(--primary-clr);
+}
+
+@keyframes loading {
+  to {
+    background-position: 315px 0, 0 0, 15px 200px, 15px 240px;
+  }
+}
+
+.loading-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

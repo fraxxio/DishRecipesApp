@@ -3,16 +3,25 @@ import "./mainform.css";
 import { IoMdRefresh } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
 import { Tags } from "../../data/tags";
 import { useDataContext } from "../../context/dataContext";
 import Tag from "../Tag/Tag";
 
 const MainForm = () => {
-  const { register, handleSubmit, reset } = useForm({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       tags: "",
     },
   });
+  const tags = watch("tags");
+
   const [activeTab, setActiveTab] = useState(Tags[0].name);
   const { setSearchQuery } = useDataContext();
 
@@ -27,11 +36,17 @@ const MainForm = () => {
         <input
           id='searchbar'
           className='form-searcbar'
-          type='text'
+          type='search'
           placeholder='Dish name or ingredient...'
-          {...register("searchbar")}
+          {...register("searchbar", {
+            required: tags?.length === 0 ? "Select some tags or type in searchbar" : false,
+          })}
         />
-
+        <ErrorMessage
+          errors={errors}
+          name='searchbar'
+          render={({ message }) => <p className='form-error'>{message}</p>}
+        />
         <div className='tabs'>
           {Tags.map((tag, index) => {
             return activeTab === tag.name ? (
@@ -44,19 +59,10 @@ const MainForm = () => {
               </button>
             );
           })}
-          <button
-            type='button'
-            className='reset-btn'
-            onClick={() =>
-              reset({
-                tags: "",
-              })
-            }
-          >
+          <button type='button' className='reset-btn' onClick={() => reset({ tags: "" })}>
             <IoMdRefresh /> Reset Filters
           </button>
         </div>
-
         {Tags.map((tag, index) => {
           return (
             <React.Fragment key={index}>
@@ -90,7 +96,6 @@ const MainForm = () => {
             </React.Fragment>
           );
         })}
-
         <button className='search-btn' type='submit'>
           <IoSearchSharp /> Search
         </button>
