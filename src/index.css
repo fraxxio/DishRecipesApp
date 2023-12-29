@@ -17,7 +17,7 @@
   --border: 2px solid var(--background-clr);
   --border-radius: 0.5rem;
 
-  color-scheme: light dark;
+  color-scheme: dark dark;
   color: var(--text-color);
   background-color: var(--background-clr);
 

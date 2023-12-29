@@ -13,3 +13,48 @@
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
 }
+
+.loadingerror-section {
+  margin-top: 1.5rem;
+}
+
+.pages {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: var(--primary-clr);
+  font-size: 1.1rem;
+  font-weight: var(--fw-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pages p {
+  border: 1px solid #29b38071;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+}
+
+.pages-btn {
+  padding: 0.3rem;
+  color: var(--background-clr);
+  border: 2px solid transparent;
+  background-color: var(--primary-clr);
+  font-weight: var(--fw-medium);
+  border-radius: var(--border-radius);
+}
+
+.pages-btn:hover:not(:disabled) {
+  color: var(--primary-clr);
+  border: 2px solid var(--primary-clr);
+  background-color: var(--background-clr);
+  transition: var(--transition-time);
+  cursor: pointer;
+}
+
+.pages-btn:disabled,
+.pages-btn[disabled] {
+  border: 1px solid transparent;
+  background-color: #29b38094;
+}

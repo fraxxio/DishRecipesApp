@@ -4,12 +4,16 @@
   overflow: hidden;
   cursor: pointer;
   transition: var(--transition-time);
+  text-decoration: none;
+}
+
+.card a {
+  text-decoration: none;
 }
 
 .card:hover {
   transition: var(--transition-time);
   box-shadow: var(--primary-clr) 0 0 20px 3px;
-  transform: scale(1.03);
 }
 
 .card img {
