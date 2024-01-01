@@ -1,0 +1,12 @@
+footer {
+  background-color: var(--primary-clr);
+  color: var(--background-clr);
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: var(--fw-medium);
+}
+
+footer p a {
+  color: var(--background-clr);
+}

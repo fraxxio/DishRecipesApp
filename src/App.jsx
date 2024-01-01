@@ -3,6 +3,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Footer from "./components/Footer/Footer";
 import DishDetails from "./pages/DishDetails";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -19,7 +20,8 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='*' element={<Error />} />
       </Routes>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <Footer />
     </QueryClientProvider>
   );
 }

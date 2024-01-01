@@ -23,18 +23,4 @@ export default async function useFetchTrending(page) {
   } catch (error) {
     console.error(error);
   }
-
-  // const url = `http://localhost:4000/results`;
-
-  // try {
-  //   const response = await fetch(url);
-  //   const result = await response.json();
-  //   if (response.status !== 200) {
-  //     console.error("SERVER ERROR: ", response.status);
-  //   } else {
-  //     return result;
-  //   }
-  // } catch (error) {
-  //   console.error(error);
-  // }
 }
