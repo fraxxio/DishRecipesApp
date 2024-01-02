@@ -34,14 +34,14 @@ const DishCards = () => {
 
   //Rendering search results
 
-  if (Object.keys(searchQuery).length !== 0) {
-    return (
-      <section className='cards-section'>
-        <h1>Hello {searchQuery.searchbar}</h1>
-        <Pages page={page} setPage={setPage} />
-      </section>
-    );
-  }
+  // if (Object.keys(searchQuery).length !== 0) {
+  //   return (
+  //     <section className='cards-section'>
+  //       <h1>Hello {searchQuery.searchbar}</h1>
+  //       <Pages page={page} setPage={setPage} />
+  //     </section>
+  //   );
+  // }
 
   // Rendering trending dishes
 
