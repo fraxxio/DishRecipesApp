@@ -1,12 +1,11 @@
 .grid-title {
-  margin-top: 4rem;
   text-align: center;
   font-size: 2.5rem;
   color: var(--primary-clr);
+  padding-bottom: 2rem;
 }
 
 .cards-section {
-  margin-top: 1.5rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* grid-template-rows: repeat(5, 1fr); */
@@ -14,13 +13,7 @@
   grid-row-gap: 1.5rem;
 }
 
-.loadingerror-section {
-  margin-top: 1.5rem;
-}
-
 .pages {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
   color: var(--primary-clr);
   font-size: 1.1rem;
   font-weight: var(--fw-bold);
@@ -28,6 +21,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
 .pages p {

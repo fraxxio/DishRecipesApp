@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Pages = ({ page, setPage }) => {
+export const PagesBtn = ({ page, setPage, hasMore }) => {
   return (
     <div className='pages'>
       <button
@@ -15,12 +15,12 @@ export const Pages = ({ page, setPage }) => {
       <button
         type='button'
         className='pages-btn'
-        // disabled={isPlaceholderData || !data?.hasMore}
-        disabled={page === 5}
+        disabled={!hasMore}
+        //disabled={page === 5}
         onClick={() => {
-          // if (!isPlaceholderData && data.hasMore) {
-          setPage((old) => old + 1);
-          // }
+          if (hasMore) {
+            setPage((old) => old + 1);
+          }
         }}
       >
         Next page

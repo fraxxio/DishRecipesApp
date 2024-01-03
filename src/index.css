@@ -40,6 +40,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 ol,
 ul {
@@ -72,10 +73,18 @@ h6 {
 }
 /* MAIN CSS */
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: space-between;
+  margin-inline: auto;
+  margin-block: 4rem;
+}
+
 .container {
   max-width: 1500px;
   width: 100%;
-  margin-inline: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }

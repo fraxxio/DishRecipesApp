@@ -1,7 +1,11 @@
 import React from "react";
-import { Pages } from "./Pages";
+import MainForm from "../components/MainForm/MainForm";
+import { useDataContext } from "../context/dataContext";
+import { PagesBtn } from "../components/DishCards/PagesBtn";
 
 const Search = () => {
+  const { searchQuery } = useDataContext();
+
   return (
     <main className='container'>
       <MainForm />

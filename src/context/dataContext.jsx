@@ -5,9 +5,10 @@ export const DataContext = createContext(null);
 export default function DataContextProvider({ children }) {
   const [dishes, setDishes] = useState({});
   const [searchQuery, setSearchQuery] = useState({});
+  const [page, setPage] = useState(0);
 
   return (
-    <DataContext.Provider value={{ dishes, setDishes, searchQuery, setSearchQuery }}>
+    <DataContext.Provider value={{ dishes, setDishes, searchQuery, setSearchQuery, page, setPage }}>
       {children}
     </DataContext.Provider>
   );
