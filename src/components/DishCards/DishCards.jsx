@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./dishcards.css";
 import Loading from "../Loading/Loading";
 import FetchError from "../FetchError/FetchError";

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./mainform.css";
+import { useSearchParams } from "react-router-dom";
 import { IoMdRefresh } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { Tags } from "../../data/tags";
-import { useDataContext } from "../../context/dataContext";
 import Tag from "../Tag/Tag";
+import "./mainform.css";
 
 const MainForm = () => {
   const {
@@ -21,12 +21,12 @@ const MainForm = () => {
     },
   });
   const tags = watch("tags");
-
   const [activeTab, setActiveTab] = useState(Tags[0].name);
-  const { setSearchQuery } = useDataContext();
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   function onSumbit(data) {
-    setSearchQuery(data);
+    setSearchParams({ q: data.searchbar, tag: data.tags });
   }
 
   return (
@@ -59,7 +59,13 @@ const MainForm = () => {
               </button>
             );
           })}
-          <button type='button' className='reset-btn' onClick={() => reset({ tags: "" })}>
+          <button
+            type='button'
+            className='reset-btn'
+            onClick={() => {
+              reset({ tags: "" }), setSearchParams({});
+            }}
+          >
             <IoMdRefresh /> Reset Filters
           </button>
         </div>
