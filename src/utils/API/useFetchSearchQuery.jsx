@@ -1,11 +1,10 @@
-import { getUserTimezoneOffset } from "../GetTimezone/GetUserTimezone";
-
-export default async function useFetchTrending(page) {
-  const timeZone = encodeURIComponent(getUserTimezoneOffset());
+export default async function useFetchSearchQuery(page, searchParams) {
   const pageOffset = page * 20;
+  const query = searchParams.get("q");
+  const tags = searchParams.getAll("tag").join(encodeURIComponent(","));
   const url = `${
     import.meta.env.VITE_BASE_URL
-  }/feeds/list?size=5&timezone=${timeZone}&vegetarian=false&from=${pageOffset}`;
+  }/recipes/list?from=${pageOffset}&size=20&tags=${tags}&q=${query}`;
 
   const options = {
     method: "GET",

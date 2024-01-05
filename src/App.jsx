@@ -27,3 +27,10 @@ function App() {
 }
 
 export default App;
+
+// TODO
+// refactor tags to a button that appends search params once clicked
+// add dish details page
+// add pagination in url
+// fix browser going back buttons not working as expected
+// clicking on home button after searching something crashes the app

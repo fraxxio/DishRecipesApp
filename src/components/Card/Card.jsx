@@ -14,7 +14,7 @@ const Card = ({ dish }) => {
             <LuClock4 size={16} />
             {dish.total_time_minutes === null && dish.total_time_tier === null
               ? "Cook time unknown"
-              : dish.total_time_tier.display_tier || dish.total_time_minutes + " min"}
+              : dish.total_time_tier?.display_tier || dish.total_time_minutes + " min"}
           </p>
         </div>
       </Link>

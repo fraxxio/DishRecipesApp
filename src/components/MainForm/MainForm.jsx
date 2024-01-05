@@ -26,7 +26,7 @@ const MainForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function onSumbit(data) {
-    setSearchParams({ q: data.searchbar, tag: data.tags });
+    setSearchParams({ q: data.searchbar, tag: data.tags }, "replace");
   }
 
   return (
@@ -54,7 +54,7 @@ const MainForm = () => {
                 {tag.name}
               </button>
             ) : (
-              <button type='button' key={index} onClick={() => setActiveTab(tag.name)} className='tab'>
+              <button type='button' className='tab' key={index} onClick={() => setActiveTab(tag.name)}>
                 {tag.name}
               </button>
             );
