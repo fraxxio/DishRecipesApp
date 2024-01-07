@@ -11,9 +11,9 @@ import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { page, setPage } = useDataContext();
-  const fetchFunction = searchParams.size > 0 ? useFetchSearchQuery : useFetchTrending;
-  const qkey = searchParams.size > 0 ? "searchdish" + searchParams : "dishes";
+  const { page, setPage, SetIsDefaultPage, isDefaultPage } = useDataContext();
+  const fetchFunction = isDefaultPage ? useFetchTrending : useFetchSearchQuery;
+  const qkey = isDefaultPage ? "dishes" : "searchdish" + searchParams;
 
   const { isLoading, data, isError, error, isFetching } = useDishesData(
     fetchFunction,
@@ -21,10 +21,11 @@ const Home = () => {
     searchParams,
     qkey
   );
-  const Dishes =
-    searchParams.size > 0
-      ? data?.results || []
-      : data?.results.find((item) => item.category === "Trending").items || [];
+  const Dishes = isDefaultPage
+    ? data?.results.find((item) => item.category === "Trending").items || []
+    : data?.results || [];
+
+  console.log(data);
 
   if (isLoading || isFetching) {
     return (
@@ -56,8 +57,6 @@ const Home = () => {
       </main>
     );
   }
-
-  console.log(data);
 
   return (
     <main className='container'>

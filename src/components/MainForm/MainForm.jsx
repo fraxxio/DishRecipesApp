@@ -5,6 +5,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { Tags } from "../../data/tags";
+import { useDataContext } from "../../context/dataContext";
 import Tag from "../Tag/Tag";
 import "./mainform.css";
 
@@ -22,11 +23,13 @@ const MainForm = () => {
   });
   const tags = watch("tags");
   const [activeTab, setActiveTab] = useState(Tags[0].name);
+  const { setIsDefaultPage } = useDataContext();
 
   const [searchParams, setSearchParams] = useSearchParams();
 
   function onSumbit(data) {
     setSearchParams({ q: data.searchbar, tag: data.tags }, "replace");
+    setIsDefaultPage(false);
   }
 
   return (
@@ -63,7 +66,9 @@ const MainForm = () => {
             type='button'
             className='reset-btn'
             onClick={() => {
-              reset({ tags: "" }), setSearchParams({});
+              reset({ tags: "" });
+              setSearchParams({});
+              setIsDefaultPage(true);
             }}
           >
             <IoMdRefresh /> Reset Filters
