@@ -73,6 +73,12 @@ h6 {
 }
 /* MAIN CSS */
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 main {
   display: flex;
   flex-direction: column;

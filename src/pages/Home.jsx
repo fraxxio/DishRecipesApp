@@ -25,7 +25,7 @@ const Home = () => {
     ? data?.results.find((item) => item.category === "Trending").items || []
     : data?.results || [];
 
-  console.log(data);
+  //console.log(data);
 
   if (isLoading || isFetching) {
     return (

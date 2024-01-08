@@ -40,6 +40,10 @@ nav {
   border-bottom: var(--border);
 }
 
+.nav-links .active {
+  border-bottom: var(--border);
+}
+
 @media only screen and (max-width: 20rem) {
   .nav-wrapper {
     flex-direction: column;
