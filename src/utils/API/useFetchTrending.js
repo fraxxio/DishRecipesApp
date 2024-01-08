@@ -1,4 +1,4 @@
-import { getUserTimezoneOffset } from "../GetTimezone/GetUserTimezone";
+import { getUserTimezoneOffset } from "../GetUserTimezone";
 
 export default async function useFetchTrending(page) {
   const timeZone = encodeURIComponent(getUserTimezoneOffset());
