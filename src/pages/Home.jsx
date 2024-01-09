@@ -11,12 +11,12 @@ import { useDataContext } from "../context/dataContext";
 const Home = () => {
   const { page, setPage, SetIsDefaultPage, isDefaultPage, params } = useDataContext();
   const fetchFunction = isDefaultPage ? useFetchTrending : useFetchSearchQuery;
-  const qkey = isDefaultPage ? "dishes" : "searchdish" + params;
+  const qkey = isDefaultPage ? "trendingDishes" : "searchDish" + params;
 
   const { isLoading, data, isError, error, isFetching } = useDishesData(fetchFunction, page, params, qkey);
 
   const Dishes = isDefaultPage
-    ? data?.results?.find((item) => item.category === "Trending").items || []
+    ? (data?.results || []).find((item) => item.category === "Trending")?.items || []
     : data?.results || [];
 
   if (isLoading || isFetching) {

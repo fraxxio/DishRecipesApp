@@ -3,10 +3,11 @@ import { createContext, useContext, useState } from "react";
 export const DataContext = createContext(null);
 
 export default function DataContextProvider({ children }) {
-  const [params, setParams] = useState(new URLSearchParams());
+  const searchParams = new URLSearchParams(window.location.search);
+  const [params, setParams] = useState(searchParams);
   const [dishes, setDishes] = useState({});
   const [page, setPage] = useState(0);
-  const [isDefaultPage, setIsDefaultPage] = useState(true);
+  const [isDefaultPage, setIsDefaultPage] = useState(!(searchParams.has("tags") || searchParams.has("q")));
 
   return (
     <DataContext.Provider

@@ -1,7 +1,7 @@
 export default async function useFetchSearchQuery(page, searchParams) {
   const pageOffset = page * 20;
-  const query = searchParams.get("q");
-  const tags = searchParams.getAll("tag").join(encodeURIComponent(","));
+  const query = searchParams.get("q") || "";
+  const tags = searchParams.getAll("tags").join(encodeURIComponent(",")) || "";
   const url = `${
     import.meta.env.VITE_BASE_URL
   }/recipes/list?from=${pageOffset}&size=20&tags=${tags}&q=${query}`;
