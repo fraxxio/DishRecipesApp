@@ -7,25 +7,17 @@ import Loading from "../components/Loading/Loading";
 import FetchError from "../components/FetchError/FetchError";
 import { useDishesData } from "../hooks/useDishesData";
 import { useDataContext } from "../context/dataContext";
-import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { page, setPage, SetIsDefaultPage, isDefaultPage } = useDataContext();
+  const { page, setPage, SetIsDefaultPage, isDefaultPage, params } = useDataContext();
   const fetchFunction = isDefaultPage ? useFetchTrending : useFetchSearchQuery;
-  const qkey = isDefaultPage ? "dishes" : "searchdish" + searchParams;
+  const qkey = isDefaultPage ? "dishes" : "searchdish" + params;
 
-  const { isLoading, data, isError, error, isFetching } = useDishesData(
-    fetchFunction,
-    page,
-    searchParams,
-    qkey
-  );
+  const { isLoading, data, isError, error, isFetching } = useDishesData(fetchFunction, page, params, qkey);
+
   const Dishes = isDefaultPage
-    ? data?.results.find((item) => item.category === "Trending").items || []
+    ? data?.results?.find((item) => item.category === "Trending").items || []
     : data?.results || [];
-
-  //console.log(data);
 
   if (isLoading || isFetching) {
     return (
@@ -65,10 +57,8 @@ const Home = () => {
         data={Dishes}
         page={page}
         setPage={setPage}
-        hasMore={searchParams.size > 0 ? data.count > 20 && data.results.length === 20 : Dishes.length > 20}
-        title={
-          searchParams.size > 0 ? `Search results (${data.count}):` : `Trending dishes (${Dishes.length}):`
-        }
+        hasMore={isDefaultPage ? Dishes.length > 20 : data.count > 20 && data.results.length === 20}
+        title={isDefaultPage ? `Trending dishes (${Dishes.length}):` : `Search results (${data.count}):`}
       />
     </main>
   );

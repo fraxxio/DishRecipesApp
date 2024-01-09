@@ -23,12 +23,36 @@ const MainForm = () => {
   });
   const tags = watch("tags");
   const [activeTab, setActiveTab] = useState(Tags[0].name);
-  const { setIsDefaultPage } = useDataContext();
+  const { setIsDefaultPage, setParams } = useDataContext();
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  function hFilterChange(filterKey, filterValue) {
+    setSearchParams((prevParams) => {
+      if (filterValue === null) {
+        prevParams.delete(filterKey);
+        return prevParams;
+      }
+
+      if (prevParams.has(filterKey, filterValue) && filterKey !== "q") {
+        prevParams.delete(filterKey, filterValue);
+        return prevParams;
+      }
+
+      if (prevParams.has(filterKey) && filterKey !== "q") {
+        prevParams.append(filterKey, filterValue);
+        return prevParams;
+      }
+
+      prevParams.set(filterKey, filterValue);
+      return prevParams;
+    });
+  }
+
   function onSumbit(data) {
-    setSearchParams({ q: data.searchbar, tag: data.tags }, "replace");
+    !searchParams.has("tags") && data.tags.length > 0 ? hFilterChange("tags", data.tags) : null;
+    hFilterChange("q", data.searchbar);
+    setParams(searchParams);
     setIsDefaultPage(false);
   }
 
@@ -67,8 +91,7 @@ const MainForm = () => {
             className='reset-btn'
             onClick={() => {
               reset({ tags: "" });
-              setSearchParams({});
-              setIsDefaultPage(true);
+              hFilterChange("tag", null);
             }}
           >
             <IoMdRefresh /> Reset Filters
@@ -86,6 +109,7 @@ const MainForm = () => {
                         displayName={item.display_name}
                         name={item.name}
                         register={register}
+                        hFilterChange={hFilterChange}
                       />
                     );
                   })}
@@ -99,6 +123,7 @@ const MainForm = () => {
                         displayName={item.display_name}
                         name={item.name}
                         register={register}
+                        hFilterChange={hFilterChange}
                       />
                     );
                   })}
