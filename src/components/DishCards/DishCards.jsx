@@ -3,7 +3,7 @@ import "./dishcards.css";
 import Card from "../Card/Card";
 import { PagesBtn } from "./PagesBtn";
 
-const DishCards = ({ data, setPage, page, hasMore, title }) => {
+const DishCards = ({ data, hasMore, title }) => {
   return (
     <section>
       <h1 className='grid-title'>{title}</h1>
@@ -12,7 +12,7 @@ const DishCards = ({ data, setPage, page, hasMore, title }) => {
           return <Card key={dish.id} dish={dish} />;
         })}
       </div>
-      <PagesBtn page={page} setPage={setPage} hasMore={hasMore} />
+      <PagesBtn hasMore={hasMore} />
     </section>
   );
 };

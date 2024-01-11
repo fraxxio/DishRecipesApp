@@ -2,7 +2,7 @@ import { getUserTimezoneOffset } from "../GetUserTimezone";
 
 export default async function useFetchTrending(page) {
   const timeZone = encodeURIComponent(getUserTimezoneOffset());
-  const pageOffset = page * 20;
+  const pageOffset = (page - 1) * 20;
   const url = `${
     import.meta.env.VITE_BASE_URL
   }/feeds/list?size=5&timezone=${timeZone}&vegetarian=false&from=${pageOffset}`;

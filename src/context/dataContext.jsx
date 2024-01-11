@@ -6,12 +6,23 @@ export default function DataContextProvider({ children }) {
   const searchParams = new URLSearchParams(window.location.search);
   const [params, setParams] = useState(searchParams);
   const [dishes, setDishes] = useState({});
-  const [page, setPage] = useState(0);
-  const [isDefaultPage, setIsDefaultPage] = useState(!(searchParams.has("tags") || searchParams.has("q")));
+  const [page, setPage] = useState(searchParams.has("page") ? +searchParams.get("page") : 1);
+  const [isDefaultPage, setIsDefaultPage] = useState(
+    !(searchParams.has("tags") || searchParams.has("q"))
+  );
 
   return (
     <DataContext.Provider
-      value={{ dishes, setDishes, page, setPage, isDefaultPage, setIsDefaultPage, params, setParams }}
+      value={{
+        dishes,
+        setDishes,
+        page,
+        setPage,
+        isDefaultPage,
+        setIsDefaultPage,
+        params,
+        setParams,
+      }}
     >
       {children}
     </DataContext.Provider>

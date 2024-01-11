@@ -9,7 +9,7 @@ import { useDishesData } from "../hooks/useDishesData";
 import { useDataContext } from "../context/dataContext";
 
 const Home = () => {
-  const { page, setPage, SetIsDefaultPage, isDefaultPage, params } = useDataContext();
+  const { page, isDefaultPage, params } = useDataContext();
   const fetchFunction = isDefaultPage ? useFetchTrending : useFetchSearchQuery;
   const qkey = isDefaultPage ? "trendingDishes" : "searchDish" + params;
 
@@ -55,8 +55,6 @@ const Home = () => {
       <MainForm />
       <DishCards
         data={Dishes}
-        page={page}
-        setPage={setPage}
         hasMore={isDefaultPage ? Dishes.length > 20 : data.count > 20 && data.results.length === 20}
         title={isDefaultPage ? `Trending dishes (${Dishes.length}):` : `Search results (${data.count}):`}
       />

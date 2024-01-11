@@ -1,5 +1,5 @@
 export default async function useFetchSearchQuery(page, searchParams) {
-  const pageOffset = page * 20;
+  const pageOffset = (page - 1) * 20;
   const query = searchParams.get("q") || "";
   const tags = searchParams.getAll("tags").join(encodeURIComponent(",")) || "";
   const url = `${

@@ -23,7 +23,7 @@ const MainForm = () => {
   });
   const tags = watch("tags");
   const [activeTab, setActiveTab] = useState(Tags[0].name);
-  const { setIsDefaultPage, setParams } = useDataContext();
+  const { setIsDefaultPage, setParams, setPage } = useDataContext();
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -52,8 +52,13 @@ const MainForm = () => {
   function onSumbit(data) {
     !searchParams.has("tags") && data.tags.length > 0 ? hFilterChange("tags", data.tags) : null;
     hFilterChange("q", data.searchbar);
+    setSearchParams((prevParams) => {
+      prevParams.delete("page");
+      return prevParams;
+    });
     setParams(searchParams);
     setIsDefaultPage(false);
+    setPage(1);
   }
 
   return (
@@ -81,7 +86,12 @@ const MainForm = () => {
                 {tag.name}
               </button>
             ) : (
-              <button type='button' className='tab' key={index} onClick={() => setActiveTab(tag.name)}>
+              <button
+                type='button'
+                className='tab'
+                key={index}
+                onClick={() => setActiveTab(tag.name)}
+              >
                 {tag.name}
               </button>
             );

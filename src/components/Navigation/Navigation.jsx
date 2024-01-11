@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDataContext } from "../../context/dataContext";
 
 const Navigation = () => {
-  const { page, setPage, setIsDefaultPage } = useDataContext();
+  const { setPage, setIsDefaultPage } = useDataContext();
 
   return (
     <nav>
@@ -13,7 +13,7 @@ const Navigation = () => {
           to='/'
           className='nav-logo'
           onClick={() => {
-            setPage(0);
+            setPage(1);
             setIsDefaultPage(true);
           }}
         >
@@ -24,7 +24,7 @@ const Navigation = () => {
             <NavLink
               to='/'
               onClick={() => {
-                setPage(0);
+                setPage(1);
                 setIsDefaultPage(true);
               }}
               className={({ isActive }) => (isActive ? "active" : null)}
