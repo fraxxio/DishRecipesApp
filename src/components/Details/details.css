@@ -1,0 +1,133 @@
+.go-back {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--primary-clr);
+  font-size: var(--fs-title);
+  text-decoration: none;
+  cursor: pointer;
+  width: fit-content;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  padding-inline: 0.5rem;
+  transition: all var(--transition-time);
+}
+
+.go-back:hover {
+  transition: all var(--transition-time);
+  color: #36e9a7;
+  border-radius: var(--border-radius);
+  border: 1px solid #36e9a7;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 20rem 20rem minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin-top: 0.5rem;
+  color: var(--background-clr);
+}
+
+.div1 {
+  grid-area: 1 / 1 / 3 / 4;
+  background-color: var(--primary-clr);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  display: flex;
+  gap: 3rem;
+}
+
+.div1 img {
+  width: 50%;
+  object-fit: cover;
+  border: 3px solid var(--background-clr);
+  border-radius: var(--border-radius);
+}
+
+.dish-text {
+  width: 50%;
+}
+
+.dish-text h1 {
+  font-size: 2.5rem;
+}
+
+.dish-text p {
+  padding-top: 1rem;
+  font-size: var(--fs-regular);
+}
+
+.separator {
+  height: 0.2rem;
+  background-color: var(--background-clr);
+  border-radius: var(--border-radius);
+  margin-block: 2rem;
+}
+
+.cook-time {
+  color: var(--background-clr);
+  font-weight: var(--fw-medium);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.5rem;
+}
+
+.dish-details-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dish-details-tag {
+  color: var(--background-clr);
+  font-weight: var(--fw-regular);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 0.3rem;
+}
+
+.div2 {
+  grid-area: 3 / 1 / 5 / 3;
+  background-color: var(--primary-clr);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.section-title {
+  font-size: var(--fs-title);
+  font-size: var(--fs-title);
+  font-weight: var(--fw-medium);
+}
+
+.instruction {
+  padding-block: 0.3rem;
+  font-size: var(--fs-regular);
+  border-bottom: var(--border);
+}
+
+.instruction:last-child {
+  border-bottom: none;
+}
+
+.position {
+  font-size: 1.2rem;
+  font-weight: var(--fw-bold);
+  padding-right: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.div3 {
+  grid-area: 3 / 3 / 5 / 4;
+  background-color: var(--primary-clr);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.spacer {
+  height: 1rem;
+}
