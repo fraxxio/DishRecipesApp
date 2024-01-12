@@ -29,6 +29,7 @@ function App() {
 export default App;
 
 // TODO
+// Add search suggestions feature
+// Add 404 page
 // add dish details page
-// add pagination in url
 // fix browser going back buttons not working as expected

@@ -28,25 +28,28 @@ const MainForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function hFilterChange(filterKey, filterValue) {
-    setSearchParams((prevParams) => {
-      if (filterValue === null) {
-        prevParams.delete(filterKey);
-        return prevParams;
-      }
+    setSearchParams(
+      (prevParams) => {
+        if (filterValue === null) {
+          prevParams.delete(filterKey);
+          return prevParams;
+        }
 
-      if (prevParams.has(filterKey, filterValue) && filterKey !== "q") {
-        prevParams.delete(filterKey, filterValue);
-        return prevParams;
-      }
+        if (prevParams.has(filterKey, filterValue) && filterKey !== "q") {
+          prevParams.delete(filterKey, filterValue);
+          return prevParams;
+        }
 
-      if (prevParams.has(filterKey) && filterKey !== "q") {
-        prevParams.append(filterKey, filterValue);
-        return prevParams;
-      }
+        if (prevParams.has(filterKey) && filterKey !== "q") {
+          prevParams.append(filterKey, filterValue);
+          return prevParams;
+        }
 
-      prevParams.set(filterKey, filterValue);
-      return prevParams;
-    });
+        prevParams.set(filterKey, filterValue);
+        return prevParams;
+      },
+      { replace: true }
+    );
   }
 
   function onSumbit(data) {
