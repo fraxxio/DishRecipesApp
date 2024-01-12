@@ -2,12 +2,13 @@ import React from "react";
 import useFetchDishDetails from "../utils/API/useFetchDishDetails";
 import { LoadingDetails } from "../components/LoadingDetails/LoadingDetails";
 import FetchError from "../components/FetchError/FetchError";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useDishesData } from "../hooks/useDishesData";
 import { Details } from "../components/Details/Details";
 
 const DishDetails = () => {
   const { id } = useParams();
+  const { state } = useLocation();
   const params = id;
   const { isLoading, data, isError, error, isFetching } = useDishesData(
     useFetchDishDetails,
@@ -37,7 +38,7 @@ const DishDetails = () => {
 
   return (
     <main className='container'>
-      <Details data={data} />
+      <Details data={data} state={state} />
     </main>
   );
 };

@@ -5,10 +5,12 @@ import { LuClock4 } from "react-icons/lu";
 import { TbArrowBadgeRightFilled } from "react-icons/tb";
 import "./details.css";
 
-export const Details = ({ data }) => {
+export const Details = ({ data, state }) => {
+  const path = state || "";
+  console.log(path);
   return (
     <div>
-      <Link to='..' className='go-back'>
+      <Link to={`..${path}`} className='go-back'>
         <GoArrowLeft /> Go Back
       </Link>
       <div className='parent'>
@@ -54,11 +56,9 @@ export const Details = ({ data }) => {
           {data.nutrition !== null &&
             Object.entries(data.nutrition).map(([key, value]) =>
               key.startsWith("updated") ? null : (
-                <>
-                  <div className='instruction' key={key}>
-                    {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
-                  </div>
-                </>
+                <div className='instruction' key={key}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
+                </div>
               )
             )}
           <div className='spacer'></div>
@@ -79,11 +79,14 @@ export const Details = ({ data }) => {
             <>
               <p className='section-title'>Credits:</p>
               {data.credits.map((person) => {
-                return <div className='instruction'>{person.name}</div>;
+                return (
+                  <div key={person.name} className='instruction'>
+                    {person.name}
+                  </div>
+                );
               })}
             </>
           )}
-          {console.log(data)}
         </div>
       </div>
     </div>

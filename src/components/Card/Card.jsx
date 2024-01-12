@@ -1,12 +1,14 @@
 import React from "react";
 import { LuClock4 } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./card.css";
 
 const Card = ({ dish }) => {
+  const { search } = useLocation();
   return (
     <div className='card'>
-      <Link to={`/${dish.id}`}>
+      <Link state={search} to={`/${dish.id}`}>
         <img src={dish.thumbnail_url} alt={dish.name} />
         <div className='card-info'>
           <h1 title={dish.name}>{dish.name}</h1>
