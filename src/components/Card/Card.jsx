@@ -8,7 +8,7 @@ const Card = ({ dish }) => {
   const { search } = useLocation();
   return (
     <div className='card'>
-      <Link state={search} to={`/${dish.id}`}>
+      <Link state={search} to={`/dish/${dish.id}`}>
         <img src={dish.thumbnail_url} alt={dish.name} />
         <div className='card-info'>
           <h1 title={dish.name}>{dish.name}</h1>

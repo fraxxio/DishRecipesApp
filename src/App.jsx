@@ -16,7 +16,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/:id' element={<DishDetails />} />
+        <Route path='/dish/:id' element={<DishDetails />} />
         <Route path='/about' element={<About />} />
         <Route path='*' element={<Error />} />
       </Routes>
@@ -30,6 +30,6 @@ export default App;
 
 // TODO
 // Add search suggestions feature
-// Add 404 page
-// add dish details page
 // fix browser going back buttons not working as expected
+// Refactor Details component
+// Refactor MainForm component
