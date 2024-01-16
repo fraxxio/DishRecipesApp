@@ -1,4 +1,5 @@
 export default async function useFetchDishDetails(searchParams) {
+  if (searchParams === "" || searchParams === null) return "";
   const url = `${import.meta.env.VITE_BASE_URL}/recipes/auto-complete?prefix=${searchParams}`;
 
   const options = {

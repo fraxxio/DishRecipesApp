@@ -15,7 +15,7 @@
 
 .form-section h1 {
   font-size: var(--fs-title);
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .tabs {
@@ -72,13 +72,21 @@
 }
 
 .form-searcbar {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   padding: 0.5rem;
   width: 50%;
   height: 4rem;
   font-size: 1.5rem;
   border-radius: var(--border-radius);
   background-color: var(--background-clr);
+  border: 2px solid transparent;
+}
+
+.form-searcbar:focus {
+  outline: none;
+  border: 2px solid rgba(132, 252, 162, 0.644);
+  box-shadow: 0 0 6px 1px #fff, /* inner white */ 0 0 10px 2px rgb(0, 255, 64),
+    /* middle magenta */ 0 0 14px 6px #fff; /* outer cyan */
 }
 
 .form-line {
@@ -131,7 +139,7 @@
 .form-error {
   color: rgb(182, 1, 1);
   font-size: var(--fs-regular);
-  margin-top: -3rem;
-  margin-bottom: 3rem;
   text-shadow: red 1px 0 15px;
+  position: absolute;
+  top: 12rem;
 }

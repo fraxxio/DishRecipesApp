@@ -3,9 +3,9 @@ import { useSearchParams } from "react-router-dom";
 import { IoMdRefresh } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
 import { Tags } from "../../data/tags";
 import { useDataContext } from "../../context/dataContext";
+import { AutoComplete } from "../AutoComplete/AutoComplete";
 import Tag from "../Tag/Tag";
 import "./mainform.css";
 
@@ -15,17 +15,20 @@ const MainForm = () => {
     handleSubmit,
     reset,
     watch,
+    control,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
       tags: "",
+      searchbar: "",
     },
   });
   const tags = watch("tags");
   const [activeTab, setActiveTab] = useState(Tags[0].name);
   const { setIsDefaultPage, setParams, setPage } = useDataContext();
-
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isFocused, setIsFocused] = useState(false);
 
   function hFilterChange(filterKey, filterValue) {
     setSearchParams(
@@ -72,16 +75,25 @@ const MainForm = () => {
           id='searchbar'
           className='form-searcbar'
           type='search'
+          autoComplete='off'
           placeholder='Dish name or ingredient...'
+          onFocus={() => setIsFocused(true)}
           {...register("searchbar", {
-            required: tags?.length === 0 ? "Select some tags or type in searchbar" : false,
+            required: tags?.length === 0 ? true : false,
+            maxLength: {
+              value: 100,
+              message: "Too Many Characters (Max 60)",
+            },
+            onBlur: () => setIsFocused(false),
           })}
         />
-        <ErrorMessage
-          errors={errors}
-          name='searchbar'
-          render={({ message }) => <p className='form-error'>{message}</p>}
-        />
+        {errors.searchbar && errors.searchbar.type === "required" && (
+          <p className='form-error'>Select some tags or type in searchbar</p>
+        )}
+        {errors.searchbar && errors.searchbar.type === "maxLength" && (
+          <p className='form-error'>Max length exceeded (Max 100)</p>
+        )}
+        <AutoComplete setValue={setValue} isFocused={isFocused} control={control} />
         <div className='tabs'>
           {Tags.map((tag, index) => {
             return activeTab === tag.name ? (

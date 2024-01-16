@@ -6,7 +6,6 @@ import About from "./pages/About";
 import Footer from "./components/Footer/Footer";
 import DishDetails from "./pages/DishDetails";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
   const queryClient = new QueryClient();
@@ -20,7 +19,6 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='*' element={<Error />} />
       </Routes>
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <Footer />
     </QueryClientProvider>
   );
@@ -29,7 +27,7 @@ function App() {
 export default App;
 
 // TODO
-// Add search suggestions feature
+// Fix search suggestions not working on click
 // fix browser going back buttons not working as expected
 // Refactor Details component
 // Refactor MainForm component

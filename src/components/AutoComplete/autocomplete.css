@@ -1,0 +1,37 @@
+.autocomp-box {
+  background-color: var(--background-clr);
+  color: var(--primary-clr);
+  font-weight: var(--fw-medium);
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  min-width: 30rem;
+  position: absolute;
+  top: 17.7rem;
+  cursor: pointer;
+  max-height: 15rem;
+  overflow: scroll;
+}
+
+.autocomp-box .result {
+  padding-block: 0.3rem;
+  font-size: var(--fs-regular);
+  border-bottom: 1px solid #29b38060;
+  transition: var(--transition-time);
+}
+
+.autocomp-box .result:last-child {
+  border-bottom: none;
+}
+
+.autocomp-box .result:hover {
+  background-color: #332442;
+}
+
+.autocomp-box .result:last-child:hover {
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.select {
+  background-color: #332442;
+}
