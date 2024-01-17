@@ -17,6 +17,13 @@ nav {
   border: var(--border);
   border-radius: var(--border-radius);
   transition: all var(--transition-time);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-logo img {
+  height: 1.2rem;
 }
 
 .nav-logo:hover {

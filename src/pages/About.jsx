@@ -23,6 +23,16 @@ const About = () => {
         detailed instructions, ingredients, and nutrition information. Elevate your cooking
         experience with DiscoverFood, where every meal is a delightful adventure!
       </p>
+      <img
+        src='./src/assets/logo.png'
+        alt='Logo'
+        style={{
+          height: 15 + "rem",
+          borderWidth: 4 + "px",
+          borderColor: "#29b380",
+          borderStyle: "solid",
+        }}
+      />
     </main>
   );
 };

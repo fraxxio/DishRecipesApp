@@ -17,6 +17,7 @@ const Navigation = () => {
             setIsDefaultPage(true);
           }}
         >
+          <img src='./src/assets/logo.png' />
           <h1>DiscoverFood</h1>
         </NavLink>
         <ul className='nav-links'>
