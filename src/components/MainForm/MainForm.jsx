@@ -87,13 +87,18 @@ const MainForm = () => {
             onBlur: () => setIsFocused(false),
           })}
         />
+        <AutoComplete
+          isFocused={isFocused}
+          setIsFocused={setIsFocused}
+          setValue={setValue}
+          control={control}
+        />
         {errors.searchbar && errors.searchbar.type === "required" && (
           <p className='form-error'>Select some tags or type in searchbar</p>
         )}
         {errors.searchbar && errors.searchbar.type === "maxLength" && (
           <p className='form-error'>Max length exceeded (Max 100)</p>
         )}
-        <AutoComplete setValue={setValue} isFocused={isFocused} control={control} />
         <div className='tabs'>
           {Tags.map((tag, index) => {
             return activeTab === tag.name ? (
