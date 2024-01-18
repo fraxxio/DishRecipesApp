@@ -3,6 +3,7 @@
 </h1>
 
 <h1 align="center">
+  <img style="width:25px;" alt="Logo" src="./src/assets/logo.png">
   <a href="#"> DiscoverFood | Recipe app </a>
 </h1>
 
@@ -45,6 +46,19 @@ DiscoverFood is a web app that allows users to search for various recipes using 
   - [x] Additional section for nutrition, credits or tips.
 
 ---
+## Tech Stack
+
+The following tools were used in the construction of the project:
+
+#### **Platform** [React](https://reactjs.org/)
+
+- **[React Router Dom](https://reactrouter.com/en/main)**
+- **[React Icons](https://react-icons.github.io/react-icons/)**
+- **[React Hook Form](https://react-hook-form.com/)**
+- **[Tanstack Query](https://tanstack.com/query/latest)**
+
+> See the file [package.json](https://github.com/fraxxio/DishRecipesApp/blob/main/package.json)
+---
 
 ### Pre-requisites
 
@@ -73,21 +87,6 @@ $ npm run dev
 # The application will open on the port: 3000 - go to http://localhost:3000
 
 ```
-
----
-
-## Tech Stack
-
-The following tools were used in the construction of the project:
-
-#### **Platform** [React](https://reactjs.org/)
-
-- **[React Router Dom](https://reactrouter.com/en/main)**
-- **[React Icons](https://react-icons.github.io/react-icons/)**
-- **[React Hook Form](https://react-hook-form.com/)**
-- **[Tanstack Query](https://tanstack.com/query/latest)**
-
-> See the file [package.json](https://github.com/fraxxio/DishRecipesApp/blob/main/package.json)
 
 #### [](#)**Utils**
 
