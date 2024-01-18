@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="project" title="#About" src="./assets/Banner.gif" />
+    <img alt="project" title="#About" src="./src/assets/Banner.gif" />
 </h1>
 
 <h1 align="center">
@@ -25,7 +25,7 @@
  <a href="#about">About</a> •
  <a href="#features">Features</a> •
  <a href="#tech-stack">Tech Stack</a> •  
- <a href="#licence">Licence</a> • 
+ <a href="#license">License</a>
 </p>
 
 ## About
