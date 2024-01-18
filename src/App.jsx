@@ -27,7 +27,6 @@ function App() {
 export default App;
 
 // TODO
-// Fix search suggestions not working on click
 // fix browser going back buttons not working as expected
 // Refactor Details component
 // Refactor MainForm component

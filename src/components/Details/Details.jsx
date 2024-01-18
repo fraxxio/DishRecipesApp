@@ -7,7 +7,6 @@ import "./details.css";
 
 export const Details = ({ data, state }) => {
   const path = state || "";
-  console.log(path);
   return (
     <div>
       <Link to={`..${path}`} className='go-back'>
@@ -52,15 +51,18 @@ export const Details = ({ data, state }) => {
           })}
         </div>
         <div className='div3'>
-          {data.nutrition !== null && <p className='section-title'>Nutrition:</p>}
-          {data.nutrition !== null &&
-            Object.entries(data.nutrition).map(([key, value]) =>
-              key.startsWith("updated") ? null : (
-                <div className='instruction' key={key}>
-                  {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
-                </div>
-              )
-            )}
+          {data.nutrition !== null && Object.keys(data.nutrition).length !== 0 ? (
+            <>
+              <p className='section-title'>Nutrition:</p>
+              {Object.entries(data.nutrition).map(([key, value]) =>
+                key.startsWith("updated") ? null : (
+                  <div className='instruction' key={key}>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
+                  </div>
+                )
+              )}
+            </>
+          ) : null}
           <div className='spacer'></div>
           {data.hasOwnProperty("tips_summary") ? (
             <>
