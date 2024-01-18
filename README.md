@@ -49,9 +49,10 @@ DiscoverFood is a web app that allows users to search for various recipes using 
 ### Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git] (https://git-scm.com),
-[Node.js] (https://nodejs.org/en/),
-[Npm] (https://www.npmjs.com/).
+
+- [Git] (https://git-scm.com),
+- [Node.js] (https://nodejs.org/en/),
+- [Npm] (https://www.npmjs.com/).
 
 #### Running the web application
 
