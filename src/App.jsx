@@ -28,5 +28,3 @@ export default App;
 
 // TODO
 // fix browser going back buttons not working as expected
-// Refactor Details component
-// Refactor MainForm component
