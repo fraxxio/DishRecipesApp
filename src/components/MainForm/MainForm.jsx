@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { IoMdRefresh } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { Tags } from "../../data/tags";
 import { useDataContext } from "../../context/dataContext";
 import { AutoComplete } from "../AutoComplete/AutoComplete";
-import Tag from "../Tag/Tag";
+import { Tabs } from "./Tabs";
+import { TagsUI } from "./TagsUI";
+import { ErrorLabel } from "./ErrorLabel";
 import "./mainform.css";
 
 const MainForm = () => {
@@ -33,7 +34,7 @@ const MainForm = () => {
   function hFilterChange(filterKey, filterValue) {
     setSearchParams(
       (prevParams) => {
-        if (filterValue === null) {
+        if (filterValue === "delete") {
           prevParams.delete(filterKey);
           return prevParams;
         }
@@ -71,6 +72,7 @@ const MainForm = () => {
     <section className='form-section'>
       <form onSubmit={handleSubmit(onSumbit)}>
         <h1>Search for dishes</h1>
+
         <input
           id='searchbar'
           className='form-searcbar'
@@ -87,81 +89,31 @@ const MainForm = () => {
             onBlur: () => setIsFocused(false),
           })}
         />
+
         <AutoComplete
           isFocused={isFocused}
           setIsFocused={setIsFocused}
           setValue={setValue}
           control={control}
         />
-        {errors.searchbar && errors.searchbar.type === "required" && (
-          <p className='form-error'>Select some tags or type in searchbar</p>
-        )}
-        {errors.searchbar && errors.searchbar.type === "maxLength" && (
-          <p className='form-error'>Max length exceeded (Max 100)</p>
-        )}
-        <div className='tabs'>
-          {Tags.map((tag, index) => {
-            return activeTab === tag.name ? (
-              <button type='button' key={index} className='tab active-tab'>
-                {tag.name}
-              </button>
-            ) : (
-              <button
-                type='button'
-                className='tab'
-                key={index}
-                onClick={() => setActiveTab(tag.name)}
-              >
-                {tag.name}
-              </button>
-            );
-          })}
-          <button
-            type='button'
-            className='reset-btn'
-            onClick={() => {
-              reset({ tags: "" });
-              hFilterChange("tag", null);
-            }}
-          >
-            <IoMdRefresh /> Reset Filters
-          </button>
-        </div>
-        {Tags.map((tag, index) => {
-          return (
-            <React.Fragment key={index}>
-              {activeTab === tag.name ? (
-                <div className='tags active-tags'>
-                  {tag.items.map((item) => {
-                    return (
-                      <Tag
-                        key={item.id}
-                        displayName={item.display_name}
-                        name={item.name}
-                        register={register}
-                        hFilterChange={hFilterChange}
-                      />
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className='tags'>
-                  {tag.items.map((item) => {
-                    return (
-                      <Tag
-                        key={item.id}
-                        displayName={item.display_name}
-                        name={item.name}
-                        register={register}
-                        hFilterChange={hFilterChange}
-                      />
-                    );
-                  })}
-                </div>
-              )}
-            </React.Fragment>
-          );
-        })}
+
+        <ErrorLabel errors={errors} />
+
+        <Tabs
+          Tags={Tags}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          reset={reset}
+          hFilterChange={hFilterChange}
+        />
+
+        <TagsUI
+          Tags={Tags}
+          activeTab={activeTab}
+          hFilterChange={hFilterChange}
+          register={register}
+        />
+
         <button className='search-btn' type='submit'>
           <IoSearchSharp /> Search
         </button>
