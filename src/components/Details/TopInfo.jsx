@@ -4,7 +4,7 @@ import { LuClock4 } from "react-icons/lu";
 export const TopInfo = ({ data }) => {
   return (
     <div className='div1'>
-      <img src={data.thumbnail_url} alt={data.name} />
+      <img className='details-pic' src={data.thumbnail_url} alt={data.name} />
       <div className='dish-text'>
         <h1>{data.name}</h1>
         <p>{data.description}</p>
