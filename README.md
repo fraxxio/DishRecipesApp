@@ -64,9 +64,9 @@ The following tools were used in the construction of the project:
 
 Before you begin, you will need to have the following tools installed on your machine:
 
-- [Git] (https://git-scm.com),
-- [Node.js] (https://nodejs.org/en/),
-- [Npm] (https://www.npmjs.com/).
+- [Git](https://git-scm.com),
+- [Node.js](https://nodejs.org/en/),
+- [Npm](https://www.npmjs.com/).
 
 #### Running the web application
 
